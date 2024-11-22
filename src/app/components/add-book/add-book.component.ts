@@ -1,6 +1,5 @@
 import { BookService } from './../../services/book.service';
 import { Component } from '@angular/core';
-import { Book } from '../../../types/book.model';
 import {
   FormControl,
   FormGroup,

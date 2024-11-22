@@ -1,0 +1,16 @@
+<div class="max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
+  <h3 class="text-xl font-semibold mb-2">Titulo: {{ book.title }}</h3>
+  <p class="text-sm text-gray-600">Autor: {{ book.author }}</p>
+  <p class="text-sm text-gray-600">Ano: {{ book.year }}</p>
+  <p class="text-sm text-gray-600">Gênero: {{ book.genre }}</p>
+  <p class="mt-1 text-sm text-gray-700">Resumo: {{ book.summary }}</p>
+
+  <div class="mt-4 flex gap-4 justify-center items-center">
+    <button class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-800">
+      Excluir
+    </button>
+    <button class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">
+      Editar
+    </button>
+  </div>
+</div>
