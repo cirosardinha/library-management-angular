@@ -11,3 +11,32 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.btn-primary {
+  @apply bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition;
+}
+
+.input-field {
+  @apply w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.textarea-field {
+  @apply w-full p-2 border border-gray-300 rounded h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.heading-primary {
+  @apply text-2xl font-bold mb-4 text-gray-800;
+}
+
+.heading-secondary {
+  @apply text-lg font-semibold mb-3 text-gray-700;
+}
+
+.card {
+  @apply bg-gray-100 p-4 rounded shadow-md hover:shadow-lg transition;
+}
+
+.text-muted {
+  @apply text-sm text-gray-600;
+}
