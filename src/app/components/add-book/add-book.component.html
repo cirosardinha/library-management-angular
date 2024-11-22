@@ -1,6 +1,6 @@
 <div class="p-4 max-w-lg mx-auto">
   <h2 class="heading-primary">Adicionar Novo Livro</h2>
-  <form class="space-y-4">
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()" class="space-y-4">
     <div>
       <label for="title" class="block text-sm font-medium"
         >Título do Livro</label
@@ -8,6 +8,7 @@
       <input
         id="title"
         type="text"
+        formControlName="title"
         class="input-field"
         placeholder="Digite o título"
       />
@@ -18,6 +19,7 @@
       <input
         id="author"
         type="text"
+        formControlName="author"
         class="input-field"
         placeholder="Digite o autor"
       />
@@ -28,6 +30,7 @@
       <input
         id="year"
         type="number"
+        formControlName="year"
         class="input-field"
         placeholder="Digite o ano"
       />
@@ -35,7 +38,7 @@
 
     <div>
       <label for="genre" class="block text-sm font-medium">Gênero</label>
-      <select id="genre" class="input-field">
+      <select id="genre" formControlName="genre" class="input-field">
         <option value="" disabled selected>Selecione um gênero</option>
         <option value="Ficção">Ficção</option>
         <option value="Fantasia">Fantasia</option>
@@ -58,6 +61,7 @@
       <textarea
         id="summary"
         class="textarea-field"
+        formControlName="summary"
         placeholder="Digite um resumo do livro"
       ></textarea>
     </div>

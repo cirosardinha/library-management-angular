@@ -9,13 +9,14 @@ export class BookService {
 
   addBook(book: Book) {
     this.books.push(book);
+    console.log(this.books);
   }
 
   getBooks() {
     return this.books;
   }
 
-  deleteBook(id: number) {
+  deleteBook(id: string) {
     this.books = this.books.filter((book) => book.id !== id);
   }
 }
