@@ -1,0 +1,67 @@
+<div class="p-4 max-w-lg mx-auto">
+  <h2 class="heading-primary">Adicionar Novo Livro</h2>
+  <form class="space-y-4">
+    <div>
+      <label for="title" class="block text-sm font-medium"
+        >Título do Livro</label
+      >
+      <input
+        id="title"
+        type="text"
+        class="input-field"
+        placeholder="Digite o título"
+      />
+    </div>
+
+    <div>
+      <label for="author" class="block text-sm font-medium">Autor</label>
+      <input
+        id="author"
+        type="text"
+        class="input-field"
+        placeholder="Digite o autor"
+      />
+    </div>
+
+    <div>
+      <label for="year" class="block text-sm font-medium">Ano</label>
+      <input
+        id="year"
+        type="number"
+        class="input-field"
+        placeholder="Digite o ano"
+      />
+    </div>
+
+    <div>
+      <label for="genre" class="block text-sm font-medium">Gênero</label>
+      <select id="genre" class="input-field">
+        <option value="" disabled selected>Selecione um gênero</option>
+        <option value="Ficção">Ficção</option>
+        <option value="Fantasia">Fantasia</option>
+        <option value="Romance">Romance</option>
+        <option value="Suspense">Suspense</option>
+        <option value="Terror">Terror</option>
+        <option value="Aventura">Aventura</option>
+        <option value="História">História</option>
+        <option value="Ciência">Ciência</option>
+        <option value="Biografia">Biografia</option>
+        <option value="Autoajuda">Autoajuda</option>
+        <option value="Tecnologia">Tecnologia</option>
+        <option value="Poesia">Poesia</option>
+        <option value="Infantil">Infantil</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="summary" class="block text-sm font-medium">Resumo</label>
+      <textarea
+        id="summary"
+        class="textarea-field"
+        placeholder="Digite um resumo do livro"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary w-full">Adicionar Livro</button>
+  </form>
+</div>
