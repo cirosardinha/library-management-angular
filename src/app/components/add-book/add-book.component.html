@@ -1,6 +1,6 @@
 <div class="p-4 max-w-lg mx-auto">
   <h2 class="heading-primary">Adicionar Novo Livro</h2>
-  <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()" class="space-y-4">
+  <form [formGroup]="formAddBook" (ngSubmit)="onSubmit()" class="space-y-4">
     <div>
       <label for="title" class="block text-sm font-medium"
         >Título do Livro</label
@@ -12,8 +12,16 @@
         class="input-field"
         placeholder="Digite o título"
       />
-    </div>
 
+      @if (formAddBook.get('title')?.touched){
+      @if(formAddBook.get('title')?.errors?.['required']){
+      <p class="text-red-500 text-sm mt-1">O título não pode estar vazio</p>
+      } @if (formAddBook.get('title')?.errors?.['minlength']) {
+      <p class="text-red-500 text-sm mt-1">
+        Título deve ter pelo menos 3 caracteres
+      </p>
+      } }
+    </div>
     <div>
       <label for="author" class="block text-sm font-medium">Autor</label>
       <input
@@ -23,6 +31,15 @@
         class="input-field"
         placeholder="Digite o autor"
       />
+
+      @if (formAddBook.get('author')?.touched){
+      @if(formAddBook.get('author')?.errors?.['required']){
+      <p class="text-red-500 text-sm mt-1">O autor não pode estar vazio</p>
+      } @if (formAddBook.get('author')?.errors?.['minlength']) {
+      <p class="text-red-500 text-sm mt-1">
+        Autor deve ter pelo menos 3 caracteres
+      </p>
+      } }
     </div>
 
     <div>
@@ -34,6 +51,19 @@
         class="input-field"
         placeholder="Digite o ano"
       />
+
+      @if (formAddBook.get('year')?.touched){
+      @if(formAddBook.get('year')?.errors?.['required']){
+      <p class="text-red-500 text-sm mt-1">O ano não pode estar vazio</p>
+      } @if (formAddBook.get('year')?.errors?.['min']) {
+      <p class="text-red-500 text-sm mt-1">
+        O ano deve ser maior ou igual a 1900
+      </p>
+      } @if (formAddBook.get('year')?.errors?.['max']) {
+      <p class="text-red-500 text-sm mt-1">
+        O ano deve ser menor ou igual ao ano atual
+      </p>
+      } }
     </div>
 
     <div>
@@ -54,6 +84,11 @@
         <option value="Poesia">Poesia</option>
         <option value="Infantil">Infantil</option>
       </select>
+
+      @if (formAddBook.get('genre')?.touched) { @if
+      (formAddBook.get('genre')?.errors?.['required']) {
+      <p class="text-red-500 text-sm mt-1">Selecione um gênero</p>
+      } }
     </div>
 
     <div>
@@ -64,8 +99,24 @@
         formControlName="summary"
         placeholder="Digite um resumo do livro"
       ></textarea>
+
+      @if(formAddBook.get('summary')?.touched){
+      @if(formAddBook.get('summary')?.errors?.['required']){
+      <p class="text-red-500 text-sm mt-1">O resumo não pode estar vazio</p>
+      } @if (formAddBook.get('summary')?.errors?.['minlength']) {
+      <p class="text-red-500 text-sm mt-1">
+        O resumo deve ter pelo menos 10 caracteres
+      </p>
+      } }
     </div>
 
-    <button type="submit" class="btn-primary w-full">Adicionar Livro</button>
+    <button
+      [class.btn-disabled]="formAddBook.invalid"
+      [disabled]="formAddBook.invalid"
+      type="submit"
+      class="btn-primary w-full"
+    >
+      Adicionar Livro
+    </button>
   </form>
 </div>

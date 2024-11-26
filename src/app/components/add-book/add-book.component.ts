@@ -5,6 +5,7 @@ import {
   FormGroup,
   FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
 import { v4 } from 'uuid';
 
@@ -16,21 +17,36 @@ import { v4 } from 'uuid';
   styleUrl: './add-book.component.scss',
 })
 export class AddBookComponent {
-  addBookForm: FormGroup;
+  formAddBook: FormGroup;
 
   constructor(private bookService: BookService) {
-    this.addBookForm = new FormGroup({
-      title: new FormControl(''),
-      author: new FormControl(''),
-      year: new FormControl(''),
-      genre: new FormControl(''),
-      summary: new FormControl(''),
+    this.formAddBook = new FormGroup({
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      author: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      year: new FormControl('', [
+        Validators.required,
+        Validators.min(1900),
+        Validators.max(new Date().getFullYear()),
+      ]),
+      genre: new FormControl('', [Validators.required]),
+      summary: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
     });
   }
+
   onSubmit() {
-    if (this.addBookForm.valid) {
-      const newBook = { id: v4(), ...this.addBookForm.value };
+    if (this.formAddBook.valid) {
+      const newBook = { id: v4(), ...this.formAddBook.value };
       this.bookService.addBook(newBook);
+      this.formAddBook.reset();
     } else {
       console.log('Form inválido');
     }
