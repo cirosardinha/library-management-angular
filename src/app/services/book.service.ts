@@ -9,7 +9,6 @@ export class BookService {
 
   addBook(book: Book) {
     this.books.push(book);
-    console.log(this.books);
   }
 
   getBooks() {

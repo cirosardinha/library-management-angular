@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { BookService } from './../../services/book.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from '../../../types/book.model';
 
 @Component({
@@ -10,4 +11,11 @@ import { Book } from '../../../types/book.model';
 })
 export class BookCardComponent {
   @Input() book!: Book;
+  @Output() delete = new EventEmitter<string>();
+
+  constructor(private bookService: BookService) {}
+
+  onDelete(): void {
+    this.delete.emit(this.book.id);
+  }
 }

@@ -2,7 +2,7 @@
   <h2 class="heading-primary">Lista de Livros</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     @for(book of books; track book.id){
-    <app-book-card [book]="book"></app-book-card>
+    <app-book-card [book]="book" (delete)="deleteBook(book.id)"></app-book-card>
     }
   </div>
 </div>

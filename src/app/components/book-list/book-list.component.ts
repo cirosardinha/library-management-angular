@@ -16,4 +16,9 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
     this.books = this.bookService.getBooks();
   }
+
+  deleteBook(id: string): void {
+    this.bookService.deleteBook(id);
+    this.books = this.bookService.getBooks();
+  }
 }
