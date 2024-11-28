@@ -13,7 +13,10 @@
     >
       Excluir
     </button>
-    <button class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">
+    <button
+      [routerLink]="['/edit', book.id]"
+      class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
+    >
       Editar
     </button>
   </div>
