@@ -1,0 +1,143 @@
+<div class="p-4 max-w-lg mx-auto">
+  <h2 class="heading-primary">
+    {{ isEditMode ? "Editar Livro" : "Adicionar Novo Livro" }}
+  </h2>
+  <form [formGroup]="formBook" (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label for="title" class="block text-sm font-medium"
+        >Título do Livro</label
+      >
+      <input
+        id="title"
+        type="text"
+        formControlName="title"
+        class="input-field"
+        [class.input-field-valid]="formBook.get('title')?.valid"
+        [class.input-field-invalid]="
+          formBook.get('title')?.invalid && formBook.get('title')?.touched
+        "
+        placeholder="Digite o título"
+      />
+
+      @if (formBook.get('title')?.touched) {
+      @if(formBook.get('title')?.errors?.['required']) {
+      <p class="error-message">O título não pode estar vazio</p>
+      } @if(formBook.get('title')?.errors?.['minlength']) {
+      <p class="error-message">Título deve ter pelo menos 3 caracteres</p>
+      } }
+    </div>
+
+    <div>
+      <label for="author" class="block text-sm font-medium">Autor</label>
+      <input
+        id="author"
+        type="text"
+        formControlName="author"
+        class="input-field"
+        [class.input-field-valid]="formBook.get('author')?.valid"
+        [class.input-field-invalid]="
+          formBook.get('author')?.invalid && formBook.get('author')?.touched
+        "
+        placeholder="Digite o autor"
+      />
+
+      @if (formBook.get('author')?.touched) {
+      @if(formBook.get('author')?.errors?.['required']) {
+      <p class="error-message">O autor não pode estar vazio</p>
+      } @if(formBook.get('author')?.errors?.['minlength']) {
+      <p class="error-message">Autor deve ter pelo menos 3 caracteres</p>
+      } }
+    </div>
+
+    <div>
+      <label for="year" class="block text-sm font-medium">Ano</label>
+      <input
+        id="year"
+        type="number"
+        formControlName="year"
+        class="input-field"
+        [class.input-field-valid]="formBook.get('year')?.valid"
+        [class.input-field-invalid]="
+          formBook.get('year')?.invalid && formBook.get('year')?.touched
+        "
+        placeholder="Digite o ano"
+      />
+
+      @if (formBook.get('year')?.touched) {
+      @if(formBook.get('year')?.errors?.['required']) {
+      <p class="error-message">O ano não pode estar vazio</p>
+      } @if(formBook.get('year')?.errors?.['min']) {
+      <p class="error-message">O ano deve ser maior ou igual a 1900</p>
+      } @if(formBook.get('year')?.errors?.['max']) {
+      <p class="error-message">O ano deve ser menor ou igual ao ano atual</p>
+      } }
+    </div>
+
+    <div>
+      <label for="genre" class="block text-sm font-medium">Gênero</label>
+      <select
+        id="genre"
+        formControlName="genre"
+        class="input-field"
+        [class.input-field-valid]="formBook.get('genre')?.valid"
+        [class.input-field-invalid]="
+          formBook.get('genre')?.invalid && formBook.get('genre')?.touched
+        "
+      >
+        <option value="" disabled selected>Selecione um gênero</option>
+        <option value="Ficção">Ficção</option>
+        <option value="Fantasia">Fantasia</option>
+        <option value="Romance">Romance</option>
+        <option value="Suspense">Suspense</option>
+        <option value="Terror">Terror</option>
+        <option value="Aventura">Aventura</option>
+        <option value="História">História</option>
+        <option value="Ciência">Ciência</option>
+        <option value="Biografia">Biografia</option>
+        <option value="Autoajuda">Autoajuda</option>
+        <option value="Tecnologia">Tecnologia</option>
+        <option value="Poesia">Poesia</option>
+        <option value="Infantil">Infantil</option>
+      </select>
+
+      @if (formBook.get('genre')?.touched) {
+      @if(formBook.get('genre')?.errors?.['required']) {
+      <p class="error-message">Selecione um gênero</p>
+      } }
+    </div>
+
+    <div>
+      <label for="summary" class="block text-sm font-medium">Resumo</label>
+      <textarea
+        id="summary"
+        class="textarea-field"
+        [class.input-field-valid]="formBook.get('summary')?.valid"
+        [class.input-field-invalid]="
+          formBook.get('summary')?.invalid && formBook.get('summary')?.touched
+        "
+        formControlName="summary"
+        placeholder="Digite um resumo do livro"
+      ></textarea>
+
+      @if (formBook.get('summary')?.touched) {
+      @if(formBook.get('summary')?.errors?.['required']) {
+      <p class="error-message">O resumo não pode estar vazio</p>
+      } @if(formBook.get('summary')?.errors?.['minlength']) {
+      <p class="error-message">O resumo deve ter pelo menos 10 caracteres</p>
+      } }
+    </div>
+
+    <button
+      [class.btn-disabled]="formBook.invalid"
+      [disabled]="formBook.invalid"
+      type="submit"
+      class="btn-primary w-full"
+    >
+      @if (isSubmitting) {
+      <span>Carregando...</span>
+      } @else {
+      <span>{{ isEditMode ? "Salvar Alterações" : "Adicionar Livro" }}</span>
+      }
+    </button>
+  </form>
+</div>
