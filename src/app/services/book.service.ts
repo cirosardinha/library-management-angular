@@ -7,8 +7,22 @@ import { Book } from '../../types/book.model';
 export class BookService {
   private books: Book[] = [];
 
+  constructor() {
+    this.loadBooksFromLocalStorage();
+  }
+
+  private loadBooksFromLocalStorage() {
+    const storedBooks = localStorage.getItem('books');
+    this.books = storedBooks ? JSON.parse(storedBooks) : [];
+  }
+
+  private saveBooksToLocalStorage() {
+    localStorage.setItem('books', JSON.stringify(this.books));
+  }
+
   addBook(book: Book) {
     this.books.push(book);
+    this.saveBooksToLocalStorage();
   }
 
   getBooks() {
@@ -24,9 +38,11 @@ export class BookService {
     if (index !== -1) {
       this.books[index] = book;
     }
+    this.saveBooksToLocalStorage();
   }
 
   deleteBook(id: string) {
     this.books = this.books.filter((book) => book.id !== id);
+    this.saveBooksToLocalStorage();
   }
 }
