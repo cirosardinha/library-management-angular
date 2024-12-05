@@ -1,0 +1,25 @@
+.quote-container {
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.quote-text {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: #333;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 2.7s ease-in-out, opacity 1s ease-in-out;
+}
+
+.fade-in-left {
+  opacity: 1;
+  transform: translateX(0);
+}
