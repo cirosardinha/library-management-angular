@@ -1,11 +1,27 @@
 <header
-  class="bg-blue-600 text-white p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+  class="bg-[#1B1A1D] text-[#F5F5F5] p-4 flex flex-col sm:flex-row sm:justify-between sm:items-center border-b-4 border-[#81C784]"
 >
-  <h1 class="text-2xl font-bold">Biblioteca de Livros</h1>
+  <h1 class="text-2xl font-bold text-[#81C784]">Biblioteca de Livros</h1>
   <nav class="mt-2 space-x-4 sm:mt-0">
-    <a routerLink="/" class="mr-4">Início</a>
-    <a routerLink="/books" class="text-white hover:underline">Ver Livros</a>
-    <a routerLink="/add-book" class="text-white hover:underline"
+    <a
+      routerLink="/"
+      routerLinkActive="font-bold underline text-[#81C784]"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="text-[#F5F5F5] hover:text-[#81C784] hover:underline transition-colors"
+      >Início</a
+    >
+    <a
+      routerLink="/books"
+      routerLinkActive="font-bold underline text-[#81C784]"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="text-[#F5F5F5] hover:text-[#81C784] hover:underline transition-colors"
+      >Ver Livros</a
+    >
+    <a
+      routerLink="/add"
+      routerLinkActive="font-bold underline text-[#81C784]"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="text-[#F5F5F5] hover:text-[#81C784] hover:underline transition-colors"
       >Adicionar Livro</a
     >
   </nav>
@@ -14,5 +30,3 @@
 <main class="p-4">
   <router-outlet></router-outlet>
 </main>
-
-<router-outlet />

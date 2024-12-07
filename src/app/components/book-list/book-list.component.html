@@ -1,8 +1,16 @@
-<div class="p-4">
-  <h2 class="heading-primary">Lista de Livros</h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-    @for(book of books; track book.id){
+<div class="p-6">
+  <h2
+    class="text-3xl font-bold text-center text-[#81C784] border-b-4 border-[#81C784] pb-2 mb-6"
+  >
+    Lista de Livros
+  </h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for(book of books; track book.id) {
     <app-book-card [book]="book" (delete)="deleteBook(book.id)"></app-book-card>
+    } @empty {
+    <div class="text-[#A8A8A8] text-center text-lg">
+      Nenhum livro disponível.
+    </div>
     }
   </div>
 </div>

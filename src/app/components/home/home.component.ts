@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
     '“A única maneira de fazer um excelente trabalho é amar o que você faz.” – Steve Jobs',
   ];
 
-  currentQuoteIndex: number = 0;
+  currentQuoteIndex: number = Math.ceil(
+    Math.random() * (this.quotes.length - 1)
+  );
   quoteInterval: any;
   fadeInLeft: boolean = true;
 
@@ -44,10 +46,11 @@ export class HomeComponent implements OnInit {
     this.quoteInterval = setInterval(() => {
       this.fadeInLeft = false;
       setTimeout(() => {
-        this.currentQuoteIndex =
-          (this.currentQuoteIndex + 1) % this.quotes.length;
+        this.currentQuoteIndex = Math.ceil(
+          Math.random() * (this.quotes.length - 1)
+        );
         this.fadeInLeft = true;
       }, 1000);
-    }, 5000);
+    }, 6000);
   }
 }

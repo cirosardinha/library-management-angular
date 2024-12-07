@@ -1,21 +1,40 @@
-<div class="card max-w-sm rounded overflow-hidden shadow-lg bg-white p-4">
-  <h3 class="text-xl font-semibold mb-2">Titulo: {{ book.title }}</h3>
-  <p class="text-sm text-gray-600">Autor: {{ book.author }}</p>
-  <p class="text-sm text-gray-600">Ano: {{ book.year }}</p>
-  <p class="text-sm text-gray-600">Gênero: {{ book.genre }}</p>
-  <p class="text-sm text-gray-700">Resumo: {{ book.summary }}</p>
-
-  <div class="mt-4 flex gap-4 justify-start items-center">
+<div
+  class="card max-w-sm h-[400px] rounded-lg shadow-lg bg-[#2C2C2C] p-6 border border-[#81C784]"
+>
+  <h3
+    class="text-2xl font-bold text-[#81C784] mb-4 border-b-2 border-[#81C784] pb-2"
+  >
+    {{ book.title }}
+  </h3>
+  <div class="text-[#A8A8A8] space-y-2 mb-4 flex-1">
+    <p>
+      <span class="font-semibold text-[#F5F5F5]">Autor:</span> {{ book.author }}
+    </p>
+    <p>
+      <span class="font-semibold text-[#F5F5F5]">Ano:</span> {{ book.year }}
+    </p>
+    <p>
+      <span class="font-semibold text-[#F5F5F5]">Gênero:</span> {{ book.genre }}
+    </p>
+    <p class="font-semibold text-[#F5F5F5] mb-2 mt-4">Resumo:</p>
+    <div
+      class="bg-[#1B1A1D] border-t-2 border-[#81C784] p-4 rounded-lg h-[120px] overflow-y-auto scrollbar-hidden"
+    >
+      <p class="text-[#F5F5F5] text-sm break-words">
+        {{ book.summary }}
+      </p>
+    </div>
+  </div>
+  <div class="flex justify-between items-center mt-4">
     <button
       (click)="onDelete()"
-      type="button"
-      class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-800"
+      class="bg-[#E57373] text-white py-2 px-4 rounded-lg shadow-md hover:bg-[#EF5350] transition-all focus:outline-none focus:ring-2 focus:ring-[#EF5350] focus:ring-offset-gray-50"
     >
       Excluir
     </button>
     <button
       [routerLink]="['/edit', book.id]"
-      class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
+      class="bg-[#66BB6A] text-white py-2 px-4 rounded-lg shadow-md hover:bg-[#81C784] transition-all focus:outline-none focus:ring-2 focus:ring-[#81C784] focus:ring-offset-gray-50"
     >
       Editar
     </button>
