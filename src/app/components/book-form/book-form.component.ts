@@ -21,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BookFormComponent implements OnInit {
   isEditMode: boolean = false;
   isSubmitting: boolean = false;
+  successMessage: string = '';
   formBook: FormGroup;
   bookToEdit: Book | undefined;
 
@@ -66,12 +67,16 @@ export class BookFormComponent implements OnInit {
         const updatedBook: Book = { ...this.bookToEdit, ...bookData };
         this.bookService.updateBook(updatedBook);
         this.isSubmitting = false;
-        this.formBook.reset();
+        this.successMessage = 'Livro atualizado com sucesso!';
       } else {
         const newBook = { id: v4(), ...bookData };
         this.bookService.addBook(newBook);
+        this.isSubmitting = false;
+        this.successMessage = 'Livro adicionado com sucesso!';
       }
-      this.isSubmitting = false;
+      setTimeout(() => {
+        this.successMessage = '';
+      }, 5000);
       this.formBook.reset();
     } else {
       console.log('Form inválido');
