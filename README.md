@@ -1,27 +1,59 @@
-# BibliotecaLivros
+# Library Management System (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+This project is a library management system built with Angular. It allows users to view, add, edit, and delete books from a list. The data is stored using **localStorage**, so the information persists even after the page is refreshed.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **View Books**: See a list of all books stored in the system.
+- **Add a Book**: Add new books to the library.
+- **Edit a Book**: Update details of an existing book.
+- **Delete a Book**: Remove a book from the library.
+- **Responsive Design**: The app is fully responsive and optimized for both desktop and mobile screens.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular**: The front-end framework for building the application.
+- **TypeScript**: The primary language used for the app.
+- **Tailwind CSS**: For styling and responsiveness.
+- **localStorage**: Used for storing book data on the user's browser.
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To run the project locally, follow these steps:
 
-## Running unit tests
+1. Clone the repository:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/library-management-angular.git
 
-## Running end-to-end tests
+2. Navigate to the project folder:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   cd library-management-angular
 
-## Further help
+3. Install dependencies:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+   ```bash
+   npm install
+
+4. Run the development server:
+
+   ```bash
+   ng serve
+
+Open your browser and visit http://localhost:4200 to see the application.
+
+Usage
+
+- View all books: Upon opening the app, you'll see a list of books.
+- Add a new book: Click on the "Add Book" button to enter details for a new book.
+- Edit a book: Click the "Edit" button next to any book to update its details.
+- Delete a book: Click the "Delete" button to remove a book from the library.
+
+Contributing
+
+Feel free to fork the repository and submit pull requests. You can also open issues for any bugs or feature requests.
+
+License
+
+This project is open-source and available under the MIT License.

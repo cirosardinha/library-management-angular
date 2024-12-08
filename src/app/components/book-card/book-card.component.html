@@ -1,6 +1,4 @@
-<div
-  class="card max-w-sm h-[400px] rounded-lg shadow-lg bg-[#2C2C2C] p-6 border border-[#81C784]"
->
+<div class="card">
   <h3
     class="text-2xl font-bold text-[#81C784] mb-4 border-b-2 border-[#81C784] pb-2"
   >
@@ -25,12 +23,12 @@
       </p>
     </div>
   </div>
-  <div class="flex justify-between items-center mt-4">
+  <div class="flex justify-between items-center pt-1">
     <button
-      (click)="onDelete()"
-      class="bg-[#E57373] text-white py-2 px-4 rounded-lg shadow-md hover:bg-[#EF5350] transition-all focus:outline-none focus:ring-2 focus:ring-[#EF5350] focus:ring-offset-gray-50"
+      (click)="openConfirmDialog()"
+      class="bg-[#E57373] text-white py-2 px-4 rounded-lg shadow-md hover:bg-[#EF5350] transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#EF5350] focus:ring-offset-gray-50"
     >
-      Excluir
+      Deletar
     </button>
     <button
       [routerLink]="['/edit', book.id]"
@@ -40,3 +38,30 @@
     </button>
   </div>
 </div>
+
+@if (showConfirmModal) {
+<div
+  class="fixed inset-0 flex items-center justify-center z-30 bg-black/50 transition-opacity duration-300 ease-in-out"
+>
+  <div class="bg-[#1B1A1D] p-6 rounded-lg w-80">
+    <h2 class="text-lg font-semibold mb-4 text-[#F5F5F5]">
+      Tem certeza que deseja excluir?
+    </h2>
+    <p class="mb-4 text-[#A8A8A8]">Esta ação não pode ser desfeita.</p>
+    <div class="flex justify-between">
+      <button
+        (click)="onDelete()"
+        class="bg-[#EF5350] text-white py-2 px-4 rounded-lg hover:bg-[#E57373] transition-all"
+      >
+        Deletar
+      </button>
+      <button
+        (click)="closeConfirmDialog()"
+        class="bg-gray-300 text-black py-2 px-4 rounded-lg hover:bg-gray-400 transition-all"
+      >
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
+}

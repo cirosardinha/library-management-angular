@@ -14,9 +14,24 @@ export class BookCardComponent {
   @Input() book!: Book;
   @Output() delete = new EventEmitter<string>();
 
+  showConfirmModal: boolean = false;
+  bookIdToDelete: string | null = null;
   constructor(private bookService: BookService) {}
 
+  openConfirmDialog(): void {
+    this.showConfirmModal = true;
+    this.bookIdToDelete = this.book.id;
+  }
+
+  closeConfirmDialog(): void {
+    this.showConfirmModal = false;
+    this.bookIdToDelete = null;
+  }
+
   onDelete(): void {
-    this.delete.emit(this.book.id);
+    if (this.bookIdToDelete) {
+      this.delete.emit(this.book.id);
+      this.closeConfirmDialog();
+    }
   }
 }

@@ -1,10 +1,10 @@
-<div class="p-6">
+<div class="p-2">
   <h2
-    class="text-3xl font-bold text-center text-[#81C784] border-b-4 border-[#81C784] pb-2 mb-6"
+    class="text-3xl font-bold text-center text-[#81C784] border-b border-[#81C784] pb-2 mb-6"
   >
     Lista de Livros
   </h2>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
     @for(book of books; track book.id) {
     <app-book-card [book]="book" (delete)="deleteBook(book.id)"></app-book-card>
     } @empty {

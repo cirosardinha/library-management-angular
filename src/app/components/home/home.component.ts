@@ -51,6 +51,6 @@ export class HomeComponent implements OnInit {
         );
         this.fadeInLeft = true;
       }, 1000);
-    }, 6000);
+    }, 5000);
   }
 }
